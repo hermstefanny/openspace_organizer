@@ -34,9 +34,11 @@ class Seat:
 class Table:
     """This is the class Table"""
 
-    def __init__(self, capacity: int, seats: List[Seat]) -> None:
+    def __init__(self, capacity: int) -> None:
         self.capacity = capacity
-        self.seats = seats
+
+        table_seats = [Seat(True, None) for i in range(0, self.capacity)]
+        self.seats = table_seats
 
     def __str__(self) -> str:
         return f"The table has {self.capacity} free seats"

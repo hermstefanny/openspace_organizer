@@ -14,9 +14,9 @@ if __name__ == "__main__":
     table_capacity = 4
     number_of_tables = 6
 
-    table_seats = [Seat(True, None) for i in range(0, table_capacity)]
+    # table_seats = [Seat(True, None) for i in range(0, table_capacity)]
 
-    tables = [Table(table_capacity, table_seats) for i in range(0, number_of_tables)]
+    tables = [Table(table_capacity) for i in range(0, number_of_tables)]
 
     openspace = Openspace(tables, number_of_tables)
     openspace.organize(colleagues_names)
