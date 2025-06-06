@@ -1,38 +1,34 @@
 from typing import List
 
 
-
 class Seat:
     """Seat Class"""
 
     def __init__(self, free: bool, occupant: str) -> None:
-
         """setting up the classroom"""
         self.free = free
         self.occupant = occupant
 
     def set_occupant(self, name):
         """fonction that asign a student to a seat"""
-        self.name = name
+        # self.name = name
 
         if self.free == True:
             self.occupant = name
+            self.free = False
         else:
             print("not free")
 
-
     def remove_occupant(self):
-
         """fonction that remove a student from a seat"""
         if self.free == False:
-            self.occupant = None
+            self.occupant = "remove"
         else:
             print(f"Seat is not free, {self.occupant} is on it")
 
     def __str__(self):
 
         return f"The seat is ({self.free}) with {self.occupant}"
-
 
 
 class Table:
@@ -50,7 +46,9 @@ class Table:
             return True
 
     def assign_seat(self, name: str) -> None:
+
         if self.has_free_spot():
+
             for seat in self.seats:
                 if seat.free:
                     seat.set_occupant(name)

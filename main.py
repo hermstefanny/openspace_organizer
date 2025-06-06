@@ -7,12 +7,9 @@ if __name__ == "__main__":
 
     colleagues_names = load_names("./data/colleagues.csv")
 
-    # print(colleagues_names)
     # print("..........")
     # random.shuffle(colleagues_names)
     # print(colleagues_names)
-
-    # print(type(colleagues_names))
 
     table_capacity = 4
     number_of_tables = 6
@@ -21,7 +18,10 @@ if __name__ == "__main__":
 
     tables = [Table(table_capacity, table_seats) for i in range(0, number_of_tables)]
 
-    # openspace = Openspace(tables, number_of_tables)
-    # openspace.organize(colleagues_names)
-    # openspace.display()
+    openspace = Openspace(tables, number_of_tables)
+    openspace.organize(colleagues_names)
+
+    print(colleagues_names)
+
+    openspace.display()
     # openspace.store("seats_assigned.csv")
