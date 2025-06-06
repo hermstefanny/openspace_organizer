@@ -1,31 +1,31 @@
 from typing import List
 
-class Seat():
-"""
-Table Class
-"""
 
-    def __init__(self, free: bool, occupant: str):
-    """setting up the classroom"""
+class Seat:
+    """Seat Class"""
+
+    def __init__(self, free: bool, occupant: str) -> None:
+        """setting up the classroom"""
         self.free = free
         self.occupant = occupant
 
-    def set_occupant(self, name):
-    """fonction that asign a student to a seat"""
-        self.name = name
+    def set_occupant(self, name: str) -> None:
+        """fonction that asign a student to a seat"""
         if self.free == True:
             self.occupant = name
-        print("not free")
+        else:
+            print("not free")
 
-    def remove_occupant(self):
-    """fonction that remove a student from a seat"""
+    def remove_occupant(self) -> None:
+        """fonction that remove a student from a seat"""
         if self.free == False:
             self.occupant = None
-        return f"{seat_number} is not free, {name} is on it"
-            
+        else:
+            print(f"Seat is not free, {self.occupant} is on it")
 
     def __str__(self):
-    """fonction that will print if seat free and if not remove a student"""
+
+        return f"The seat is ({self.free}) with {self.occupant}"
 
 
 class Table:
@@ -36,7 +36,7 @@ class Table:
         self.seats = seats
 
     def __str__(self) -> str:
-        return f"The table has {self.capacity} seats"
+        return f"The table has {self.capacity} free seats"
 
     def has_free_spot(self) -> bool:
         if self.capacity > 0:
@@ -53,3 +53,6 @@ class Table:
     def left_capacity(self) -> int:
         return self.capacity
 
+    def display_table(self) -> None:
+        for i, seat in enumerate(self.seats):
+            print(f"Seat {i}: {seat.occupant}")
