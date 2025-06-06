@@ -29,9 +29,10 @@ class Openspace:
 
     def display(self):
         """displaying students on table with specific seat assigned"""
-        for table in self.tables:
-            print(f"table : {table}")
+        for i, table in enumerate(self.tables):
+            print(f"\nTable {i}")
             table.display_table()
 
     def store(self, filename):
         """storing classroom organisation in a CSV file"""
+        pass
