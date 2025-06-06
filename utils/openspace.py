@@ -1,5 +1,7 @@
+from typing import List
 from utils.table import Table
 from random import shuffle
+
 
 class Openspace:
     """
@@ -12,19 +14,25 @@ class Openspace:
 
     def organize(self, names):
         """Organize seats and students"""
-        self.names = names
-        shuffle(name)
+        # self.names = names
+        shuffle(names)
         for name in names:
             for table in self.tables:
-                if table.has_free_spot == True:
+                print(f"{table.capacity}")
+                if table.capacity > 0:
+
                     table.assign_seat(name)
                     break
 
+                # if table.capacity == 0:
+                #     continue
+
     def display(self):
         """displaying students on table with specific seat assigned"""
-        for table in self.tables:
+        for i, table in enumerate(self.tables):
+            print(f"\nTable {i}")
             table.display_table()
-            print("table : {table}")
 
     def store(self, filename):
         """storing classroom organisation in a CSV file"""
+        pass
