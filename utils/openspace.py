@@ -8,31 +8,38 @@ class Openspace:
     OpenSpace Class
     """
 
-    def __init__(self, tables: List[Table], number_of_tables: int):
+    def __init__(self, tables: List[Table], number_of_tables: int) -> None:
+        """
+        Constructor for the Open Space Class
+        """
         self.tables = tables
         self.number_of_tables = number_of_tables
 
-    def organize(self, names):
-        """Organize seats and students"""
-        # self.names = names
+    def __str__(self) -> str:
+        """
+        Representation of object OpenSpace
+        """
+        return f"This class has {self.number_of_tables}"
+
+    def organize(self, names: List[str]) -> None:
+        """
+        Assigning names to table
+        """
         shuffle(names)
         for name in names:
             for table in self.tables:
-                print(f"{table.capacity}")
                 if table.capacity > 0:
-
                     table.assign_seat(name)
                     break
 
-                # if table.capacity == 0:
-                #     continue
-
-    def display(self):
-        """displaying students on table with specific seat assigned"""
+    def display(self) -> None:
+        """
+        Displaying students on table with specific seat assigned
+        """
         for i, table in enumerate(self.tables):
-            print(f"\nTable {i}")
+            print(f"\nTable {i+1}")
             table.display_table()
 
-    def store(self, filename):
+    def store(self, filename: str) -> None:
         """storing classroom organisation in a CSV file"""
         pass
